@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">笔记本</string>
+    <string name="patten_hint">请绘制您的密钥图形</string>
+    <string name="title_item_detail">详情</string>
+    <string name="search_hint">搜索</string>
+    <string name="list_add">添加</string>
+    <string name="list_settings">设置</string>
+</resources>
