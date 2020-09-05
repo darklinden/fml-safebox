@@ -3,7 +3,7 @@ package com.darklinden.fml
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.content_set_quick_password.*
+import kotlinx.android.synthetic.main.activity_lock_check.*
 
 
 class LockCheckAct : AppCompatActivity() {

@@ -1,5 +1,6 @@
 package com.darklinden.fml
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.WindowManager
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.darklinden.fml.data.FileListAdapter
+import com.darklinden.fml.data.SecFileItem
 import kotlinx.android.synthetic.main.activity_item_list.*
 import java.util.*
 import kotlin.concurrent.schedule
@@ -46,7 +48,7 @@ class ItemListActivity : AppCompatActivity() {
             }
         })
 
-        search_view.setOnQueryTextFocusChangeListener { v, hasFocus ->
+        search_view.setOnQueryTextFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 search_view.isIconified = true
                 refreshData()
@@ -65,7 +67,11 @@ class ItemListActivity : AppCompatActivity() {
         }
 
         btn_add.setOnClickListener {
-            openFileOutput(Math.random().toString(), android.content.Context.MODE_PRIVATE)
+
+            val item = SecFileItem()
+            item.title = "test" + (Math.random() * 0xff).toInt()
+            item.info = (Math.random() * 0xff).toInt().toString()
+            item.saveData()
         }
     }
 
@@ -82,6 +88,15 @@ class ItemListActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        killMe()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        killMe()
+    }
+
+    fun killMe() {
         android.os.Process.killProcess(android.os.Process.myPid());
         exitProcess(0);
     }

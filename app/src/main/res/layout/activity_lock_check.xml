@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <RelativeLayout
+        android:id="@+id/content_setpassword"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryBg"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
 
-    <include layout="@layout/content_set_quick_password" />
+        android:paddingBottom="@dimen/activity_vertical_margin">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/lock_view"
+            android:layout_marginBottom="16dp"
+            android:background="@null"
+            android:gravity="center"
+            android:text="@string/patten_hint"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/title_text_size" />
 
-    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom|end"-->
-<!--        android:layout_margin="@dimen/fab_margin"-->
-<!--        android:src="@drawable/ic_check_mark" />-->
+        <com.eftimoff.patternview.PatternView xmlns:patternview="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/lock_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="50dp"
+            patternview:circleColor="@color/colorPrimaryDark"
+            patternview:dotColor="@color/colorPrimary"
+            patternview:gridColumns="4"
+            patternview:gridRows="4"
+            patternview:pathColor="@color/colorPrimary" />
+
+    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

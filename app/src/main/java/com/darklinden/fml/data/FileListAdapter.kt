@@ -1,14 +1,29 @@
 package com.darklinden.fml.data
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.darklinden.fml.Application
 import com.darklinden.fml.R
 import java.util.ArrayList
+import kotlinx.android.synthetic.main.item_list_content.*
 
-class FileListAdapter : RecyclerView.Adapter<FileItemViewHolder>() {
+class FileListAdapter : RecyclerView.Adapter<FileListAdapter.FileItemViewHolder>() {
+
+    inner class FileItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var item: SecFileItem? = null
+            set(value) {
+                Log.d("", "")
+                field = value
+
+                if (value != null) {
+                    this.itemView.findViewById<TextView>(R.id.id_text).text = value.title
+                }
+            }
+    }
 
     val values: MutableList<SecFileItem> = ArrayList()
     var filter: String = ""
@@ -17,7 +32,7 @@ class FileListAdapter : RecyclerView.Adapter<FileItemViewHolder>() {
     private val onClickListener: View.OnClickListener
 
     init {
-        onClickListener = View.OnClickListener { v ->
+        onClickListener = View.OnClickListener { _ ->
             //            val item = v.tag as DummyContent.SecFileItem
 //            val intent = Intent(
 //                v.context,
@@ -63,7 +78,7 @@ class FileListAdapter : RecyclerView.Adapter<FileItemViewHolder>() {
         filter = query
         filtedValues.clear()
         for (o in values) {
-            if (o.toString().indexOf(query) != -1) {
+            if (o.title?.indexOf(query) != -1) {
                 filtedValues.add(o)
             }
         }
@@ -78,7 +93,7 @@ class FileListAdapter : RecyclerView.Adapter<FileItemViewHolder>() {
         val fileList = Application.app.fileList()
 
         for (f in fileList) {
-            values.add(SecFileItem(f))
+            SecFileItem.fromFile(f)?.let { values.add(it) }
         }
         this.notifyDataSetChanged()
     }
