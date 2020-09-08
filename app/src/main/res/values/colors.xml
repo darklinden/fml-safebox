@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryBg">#E0E0E0</color>
-    <color name="colorPrimaryTransparentBg">#30303030</color>
-    <color name="colorPrimaryDarkBg">#202020</color>
-    <color name="colorPrimary">#43BBAA</color>
-    <color name="colorAccent">#83FFEE</color>
-    <color name="colorPrimaryDark">#63EEDD</color>
+    <color name="colorPrimaryTransparentBg">#00000000</color>
+    <color name="colorPrimary">#226644</color>
+    <color name="colorAccent">#225577</color>
+    <color name="colorPrimaryDark">#224444</color>
 </resources>

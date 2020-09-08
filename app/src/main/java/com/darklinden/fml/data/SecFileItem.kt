@@ -3,15 +3,13 @@ package com.darklinden.fml.data
 import android.content.Context
 import android.util.Log
 import com.darklinden.fml.Application
-import com.darklinden.fml.BuildConfig
 import org.json.JSONObject
-import java.lang.Exception
-import java.util.*
 
-/**
- * A dummy item representing a piece of content.
- */
-data class SecFileItem(var uuid: String? = null) {
+data class SecFileItem(
+    var uuid: String? = null,
+    var title: String? = null,
+    var info: String? = null
+) {
 
     companion object {
         private const val kTitle = "title"
@@ -33,6 +31,7 @@ data class SecFileItem(var uuid: String? = null) {
 
                     if (!title.isEmpty() && !info.isEmpty()) {
                         o = SecFileItem()
+                        o.uuid = uuid
                         o.title = title
                         o.info = info
                     }
@@ -47,16 +46,6 @@ data class SecFileItem(var uuid: String? = null) {
             }
 
             return o
-        }
-    }
-
-    var title: String? = null
-    var info: String? = null
-
-    init {
-        if (uuid == null) {
-            // new
-            this.uuid = UUID.randomUUID().toString()
         }
     }
 
@@ -79,5 +68,20 @@ data class SecFileItem(var uuid: String? = null) {
         }
 
         return success;
+    }
+
+    fun deleteData(): Boolean {
+        var success = false
+        try {
+
+            if (uuid != null)
+                success = Application.app.deleteFile(uuid)
+
+        } catch (e: Exception) {
+            success = false;
+            e.printStackTrace()
+        }
+
+        return success
     }
 }

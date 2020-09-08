@@ -3,7 +3,16 @@
     <string name="app_name">笔记本</string>
     <string name="patten_hint">请绘制您的密钥图形</string>
     <string name="title_item_detail">详情</string>
-    <string name="search_hint">搜索</string>
-    <string name="list_add">添加</string>
-    <string name="list_settings">设置</string>
+    <string name="title_settings">设置</string>
+    <string name="gen_random_pass" >随机</string>
+    <string name="save_item">保存</string>
+    <string name="use_random">使用随机</string>
+    <string name="delete">删除</string>
+    <string name="toast_title_info_required">名称和详情不能为空。</string>
+    <string name="alert_title">提示</string>
+    <string name="alert_confirm_delete">确定要删除当前条目吗？</string>
+    <string name="alert_btn_ok">确定</string>
+    <string name="alert_btn_cancel">取消</string>
+    <string name="toast_open_detail_failed">打开详情失败。</string>
+    <string name="toast_sync_running">正在同步，请稍候...</string>
 </resources>

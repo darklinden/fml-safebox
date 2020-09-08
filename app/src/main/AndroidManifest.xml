@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.darklinden.fml">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:name=".Application"
         android:allowBackup="false"
@@ -11,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup">
         <activity
             android:name=".LockCheckAct"
             android:label="@string/app_name"
@@ -28,17 +33,13 @@
             android:label="@string/app_name"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
-            android:name=".NewItemActivity"
-            android:label="@string/app_name"
+            android:name=".SettingsActivity"
+            android:label="@string/title_settings"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ItemDetailActivity"
-            android:label="@string/title_item_detail"
-            android:parentActivityName=".ItemListActivity"
-            android:screenOrientation="sensorPortrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

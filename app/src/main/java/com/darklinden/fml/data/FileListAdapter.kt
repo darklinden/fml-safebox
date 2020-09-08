@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.darklinden.fml.Application
+import com.darklinden.fml.ItemListActivity
 import com.darklinden.fml.R
 import java.util.ArrayList
-import kotlinx.android.synthetic.main.item_list_content.*
 
-class FileListAdapter : RecyclerView.Adapter<FileListAdapter.FileItemViewHolder>() {
+class FileListAdapter(val itemListActivity: ItemListActivity) :
+    RecyclerView.Adapter<FileListAdapter.FileItemViewHolder>() {
 
     inner class FileItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var item: SecFileItem? = null
@@ -32,15 +33,12 @@ class FileListAdapter : RecyclerView.Adapter<FileListAdapter.FileItemViewHolder>
     private val onClickListener: View.OnClickListener
 
     init {
-        onClickListener = View.OnClickListener { _ ->
-            //            val item = v.tag as DummyContent.SecFileItem
-//            val intent = Intent(
-//                v.context,
-//                ItemDetailActivity::class.java
-//            ).apply {
-//                putExtra(ItemDetailFragment.ARG_ITEM_ID, item.id)
-//            }
-//            v.context.startActivity(intent)
+        onClickListener = View.OnClickListener { v ->
+
+            val item = v.tag as SecFileItem
+            item.let {
+                itemListActivity.showItemDetail(it)
+            }
         }
     }
 
