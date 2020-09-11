@@ -153,6 +153,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:gravity="center"
+                    android:inputType="textPassword"
                     android:text=""
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/normal_text_size" />
@@ -181,7 +182,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:text=""
+                    android:inputType="textPassword"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/normal_text_size" />
             </LinearLayout>
@@ -193,7 +194,7 @@
 
                 <Button
                     android:id="@+id/btn_random"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:gravity="center"
@@ -203,7 +204,7 @@
 
                 <Button
                     android:id="@+id/btn_delete"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="center"
@@ -214,7 +215,7 @@
 
                 <Button
                     android:id="@+id/btn_save"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="20dp"

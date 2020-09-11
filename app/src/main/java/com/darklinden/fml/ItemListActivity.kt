@@ -1,9 +1,13 @@
 package com.darklinden.fml
 
 import android.app.ProgressDialog
+import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.text.Editable
+import android.text.TextWatcher
+import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.WindowManager
 import android.widget.SearchView
@@ -19,9 +23,35 @@ import java.util.*
 import kotlin.concurrent.schedule
 import kotlin.math.floor
 import kotlin.system.exitProcess
+import android.text.method.TransformationMethod as TransformationMethod
 
 
 class ItemListActivity : AppCompatActivity() {
+
+    inner class DoNothingTransformationMethod : TransformationMethod, TextWatcher {
+        override fun onFocusChanged(
+            view: View?,
+            sourceText: CharSequence?,
+            focused: Boolean,
+            direction: Int,
+            previouslyFocusedRect: Rect?
+        ) {
+        }
+
+        override fun getTransformation(source: CharSequence?, view: View?): CharSequence {
+            return source ?: ""
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        }
+    }
+
 
     private var selected_uuid: String? = null
 
@@ -42,6 +72,9 @@ class ItemListActivity : AppCompatActivity() {
             systemUiVisibility = systemUiVisibility or flags
             this.window.decorView.systemUiVisibility = systemUiVisibility
         }
+
+        et_info.transformationMethod = DoNothingTransformationMethod()
+        et_random.transformationMethod = DoNothingTransformationMethod()
 
         search_view.setOnClickListener { search_view.isIconified = false }
 
